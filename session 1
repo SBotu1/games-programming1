@@ -1,0 +1,15 @@
+number= int(input("type a number"))
+
+if number<=100:
+    print("Thats a small number")
+elif number<= 1000:
+    print("thats what i call a big number")
+else:
+    print("thats a big number")
+
+number= int(input("type a number"))
+
+if number % 2== 0:
+    print("even")
+else:
+    print("odd")
