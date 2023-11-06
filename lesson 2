@@ -1,0 +1,112 @@
+ The original list of numbers as strings
+numList = ["2", "3", "5", "7", "66", "89", "134"]
+
+# Initializing an empty list to store numbers smaller than the user's input
+output = []
+
+# User input to choose a number
+choice = int(input("Choose any number: "))
+
+# Iterating through each number in the 'numList'
+for number in numList:
+    # Converting each number from string to an integer for comparison
+    num = int(number)
+    
+    # Checking if the number from the list is smaller than the user's chosen number
+    if num < choice:
+        # If the number is smaller, it's added to the 'output' list
+        output.append(num)
+
+# Printing the list that contains numbers smaller than the user's chosen number
+print("Numbers smaller than the chosen number:", output)
+
+
+#lists 
+mammalslist= ["Humans", "sharks", "deer"]
+reptilelist= ["lizards", "bearded dragon", "camellion"]
+#lists addition
+animals = mammalslist + reptilelist 
+ 
+
+choice = input("name an animal")
+if choice in animals:
+    animals.remove (choice)
+
+print (animals)
+
+
+inventorylist= ["spoon", "sword", "gun", "tentacle sweeper"]
+
+choice = input("you have stubbled across a tentacle monster whichh weapon will you use to attack?")
+
+if choice in inventorylist:
+    print ("well done you chose the correct weapon and have killed it")
+
+if choice not in inventorylist:
+    print ("you chose wrong weapon")
+
+
+#list the user has the choice from then gets printed 
+inventorylist= ["spoon", "sword", "gun", "tentacle sweeper"]
+print (inventorylist)
+#choice which is the data taken from the user
+choice = input("you have stubbled across a tentacle monster whichh weapon will you use to attack?").lower()
+
+#ask if the users input is in the inventory list given
+if choice in inventorylist:
+    #if the users input is equal to a specific choice
+    if choice == ("tentacle sweeper"):
+        print ("well done you chose the correct weapon and have killed it")
+        #if it isnt then message pops up informing the player
+    else:
+        print ("you lose")
+if choice not in inventorylist:
+    print ("you chose wrong weapon")
+
+
+#number of Ls as a string starting from 0 
+numbeLl= 0
+#what we want to store and use based off the answer  
+string= "hello world"
+#takes out the letter in the sring we stored being hello world if it is equal to L in the string add 1 for each L in the string and print the number of Ls as a string from line 1
+for letter in string:
+    if letter== "l":
+      numbeLl +=1 
+      print (numbeLl)
+
+
+
+outcome= ""
+
+string= "python"
+
+for letter in string:
+    if letter == "t":
+        continue
+    outcome+= letter
+    
+print (outcome)
+
+
+ The original list of numbers as strings
+numList = ["2", "3", "5", "7", "66", "89", "134"]
+
+# Initializing an empty list to store numbers smaller than the user's input
+output = []
+
+# User input to choose a number
+choice = int(input("Choose any number: "))
+
+# Iterating through each number in the 'numList'
+for number in numList:
+    # Converting each number from string to an integer for comparison
+    num = int(number)
+    
+    # Checking if the number from the list is smaller than the user's chosen number
+    if num < choice:
+        # If the number is smaller, it's added to the 'output' list
+        output.append(num)
+
+# Printing the list that contains numbers smaller than the user's chosen number
+print("Numbers smaller than the chosen number:", output)
+    
