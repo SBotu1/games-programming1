@@ -1,0 +1,56 @@
+# Define a string of vowels
+vowels = "aeiouAEIOU"
+
+# Take user input for the monster name
+monster_name = input("Enter the monster name: ")
+
+# Check if the length of the name is 3 or fewer characters
+if len(monster_name) <= 3:
+    # If the name is 3 characters or fewer, add 'baby ' as a prefix
+    modified_name = "baby " + monster_name
+else:
+    # If the name is longer than 3 characters
+    if monster_name[-1] in vowels:
+        # Check if the last character of the name is a vowel
+        modified_name = monster_name + 'ling'  # If a vowel, add 'ling' to the end
+    else:
+        modified_name = monster_name + 'elle'  # If not a vowel, add 'elle' to the end
+
+# Print the modified monster name
+print(modified_name)
+
+
+# Welcome the user to the space
+print("Welcome to the Enchanted Forest!")
+print("You find yourself in a lush forest. There are two paths ahead.")
+
+# Display options and take user input for navigation
+print("Would you like to go 'left' or 'right'?")
+choice = input("Enter your choice: ")
+
+# Based on the user's choice, navigate to the next area
+if choice.lower() == 'left':
+    print("You chose to go left and you find a sparkling river.")
+    print("A boat appears nearby. Do you want to 'row' or 'swim'?")
+    next_choice = input("Enter your choice: ")
+    if next_choice.lower() == 'row':
+        print("You safely row across the river and reach the other side.")
+    elif next_choice.lower() == 'swim':
+        print("You bravely swim across but encounter a magical creature.")
+        print("You have returned to the forest.")
+    else:
+        print("Invalid choice. You stand still and contemplate your next move.")
+elif choice.lower() == 'right':
+    print("You chose to go right and discover a hidden cave.")
+    print("There are two tunnels inside. Do you take the 'left' or 'right' tunnel?")
+    next_choice = input("Enter your choice: ")
+    if next_choice.lower() == 'left':
+        print("You venture through the left tunnel and find a treasure chest!")
+    elif next_choice.lower() == 'right':
+        print("You take the right tunnel and encounter a sleeping dragon.")
+        print("You quietly return to the forest.")
+    else:
+        print("Unknown choice. You remain at the cave entrance, contemplating your next move.")
+else:
+    print("Invalid choice. You stand still and ponder your next move.")
+
