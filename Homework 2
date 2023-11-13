@@ -1,0 +1,10 @@
+x = ['mix', 'xyz', 'apple', 'xanadu', 'rovio']
+
+# Define a custom sorting key
+def custom_sort(s):
+    return (not s.startswith('x'), s)
+
+# Sort the list using the custom key
+result = sorted(x, key=custom_sort)
+
+print(result)
