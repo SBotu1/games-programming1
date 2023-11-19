@@ -8,3 +8,48 @@ def custom_sort(s):
 result = sorted(x, key=custom_sort)
 
 print(result)
+
+
+
+words = ["xxx", "aaa", "r5t6yy", "g", "wow"]
+
+# Count strings with length 2 or more and the same first and last character
+count = sum(1 for word in words if len(word) >= 2 and word[0] == word[-1])
+
+print(count)
+
+
+
+
+  # Define the correct password
+  password = "Password"
+
+  # Initialize the attempts counter
+  attempts = 0
+
+  # Start a loop that continues until the user guesses the correct password or reaches three attempts
+  while attempts < 3:
+      # Prompt the user to input their guess
+      userinput = input("Guess the password: ")
+
+      # Increment the attempts counter
+      attempts += 1
+
+      # Check if the user entered "You lost" (case insensitive)
+      if userinput.lower() == "you lost":
+          # Print a message and exit the loop
+          print("You lost!")
+          break
+      # Check if the user entered the correct password
+      elif userinput == password:
+          # Print a congratulatory message and exit the loop
+          print("Congrats, you got it right!")
+          break
+      else:
+          # If the user didn't enter the correct password, prompt them to try again
+          print("Try again.")
+
+  # Check if the user reached the maximum number of attempts
+  if attempts == 3:
+      # Print a message about reaching the maximum attempts
+      print("Sorry, you've reached the maximum number of attempts.")
