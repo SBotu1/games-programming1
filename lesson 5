@@ -1,0 +1,76 @@
+#double underscores for define code and capital letter for class name and define code on line 12&17&!4
+class Enemy:
+    
+    weapons = {"Sword": 7, "Mace": 8, "lollypop" : 100}
+    
+    
+    def __init__(self,name,homeland,ability):
+        self.name = name
+        self.homeland = homeland
+        self.ability = ability 
+        self.weapon = ""
+    def EnemyDescription (self):
+        print("i am a {}, from {}, my ablity is {}".format(self.name, self.homeland, self.ability))
+    def Weaponequip (self, choice):
+        if(choice in Enemy.weapons):
+            self.weapon = choice
+enemy1 =  Enemy ("vampire", "uxbridge", "Fireball")
+enemy1.Weaponequip("lollypop")
+enemy1.EnemyDescription()
+
+
+
+
+class Cheerleader:
+    def __init__(self,name,team):
+        self.name= name
+        self.team= team
+    def Shout (self):
+        print("my name is {}, lets go {}".format(self.name, self.team))
+
+cheerleader1 = Cheerleader("sheldon", "brunel")
+cheerleader1.Shout()
+
+
+
+
+
+
+
+import random
+class Collectable:
+    
+    def __init__ (self):
+        self.value = random.randinit (20,100)
+
+class Potion (Collectable):
+    potion_colours = ["Red", "Green", "Blue"]
+    def __init__(self):
+        Collectable.__init__(self)
+        self.colour = Potion.potion_colours[random.randint(0,2)]
+        
+        
+        
+        
+total_points = 0
+while total_points< 600:
+	userinput = input("Give me one number between 1-6:")
+	if not userinput.isdigit():  
+		print("I asked for a number!")
+		continue
+		
+	as_num= int(userinput)
+	
+	if as_num >6:
+	    print("that number is more than 6")
+	    continue
+	
+	elif as_num<=3:
+	    print("making a coin")
+	    coin = Collectable()
+	    total_points += coin.value
+	    print (total_points)
+	    pass
+	else:
+	    print("making a potion")
+	    pass
