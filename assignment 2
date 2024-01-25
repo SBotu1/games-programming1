@@ -1,5 +1,25 @@
-print ("Welcome to the legendary quest of strenght")
+import time 
+print ("Welcome to the Legendary Quest of Strength!")
+Enemy1_health = 20
 
-inventory =
+Enemies2_health = 100
 
-print ("Bob)
+Option_B_enemy_health = 400
+
+Items = {'coins' : 1}
+
+Inventory = {'shortsword': 20 , 'fire ball' : 100 , 'blizzard slash' :100,}
+
+
+
+item_store: {'Health potion' : 50 , 'Greatsword' : 400 , 'Grappling hook' : 1}
+
+Player_health = 50
+
+print (f"Players current health :{Player_health}", end='\r')
+time.sleep (1)
+enemyslash = 20 
+
+Player_health -= enemyslash
+
+print (f"Players current health: {Player_health}")
