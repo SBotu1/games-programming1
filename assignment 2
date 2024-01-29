@@ -9,7 +9,7 @@ Option_B_enemy_health = 400
 Items = {'coins' : 1}
 
 Inventory = {'shortsword': 20 , 'fire ball' : 100 , 'blizzard slash' :100,}
-
+print(Inventory)
 
 
 item_store: {'Health potion' : 50 , 'Greatsword' : 400 , 'Grappling hook' : 1}
@@ -17,9 +17,56 @@ item_store: {'Health potion' : 50 , 'Greatsword' : 400 , 'Grappling hook' : 1}
 Player_health = 50
 
 print (f"Players current health :{Player_health}", end='\r')
-time.sleep (1)
-enemyslash = 20 
+time.sleep (0.5)
+enemyslash = 49 
 
 Player_health -= enemyslash
 
+if Player_health <= 0:
+    print ("you died game over")
+
 print (f"Players current health: {Player_health}")
+
+
+        
+
+
+print ("STEVEN BEGINS HIS JOURNEY!.....", end = '\r')
+time.sleep (4)
+
+print ("His story began when he was out on a quest with his team to clear out a dungeon and collect treasure.", end = '\r')
+time.sleep (4)
+
+print ("But his team got got destroyed by the enemies and all of them died but Steven.", end='\r')
+time.sleep (4)
+
+print ("fast forward to the present Steven is now inside a dungeon alone because hes crew is dead and now he wants revenge.", end= '\r')
+time.sleep(4)
+
+print ("You enter the dungeon you see three pawthways A,B and C choose wisely.....", end = '\r')
+time.sleep (4)
+
+while True:
+    # Prompt the player to input their selected weapon from the inventory.
+    selected_weapon = input("Choose a weapon from your inventory: ")
+
+    # Check if the selected weapon is in the inventory.
+    if selected_weapon in Inventory:
+        damage = Inventory[selected_weapon]
+
+        # Update the enemy's health based on the damage of the selected weapon.
+        Enemy1_health -= damage
+
+        # Display a message about the attack.
+        print(f"You used {selected_weapon}. It dealt {damage} damage to Enemy 1.")
+
+        # Check if Enemy 1 is slain.
+        if Enemy1_health <= 0:
+            print("Enemy 1 slain!")
+            break  # Exit the loop since Enemy 1 is slain
+        else:
+            # Display Enemy 1's current health.
+            print(f"Enemy 1's current health: {Enemy1_health}")
+    else:
+        # Display a message if the selected weapon is not in the inventory.
+        print("That's not a weapon in the inventory. Please choose a valid weapon.")
