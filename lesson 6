@@ -1,0 +1,99 @@
+#raindrops
+import pygame
+import sys
+from random import randrange
+
+pygame.init()
+pygame.display.set_caption("My first PyGame program")
+screenx = 400
+screeny = 400
+screen = pygame.display.set_mode((screenx, screeny))
+clock = pygame.time.Clock()
+
+
+class Raindrop:
+    def __init__(self, startx, starty):
+        self.xpo = startx
+        self.ypo = starty
+        self.speed = 3
+
+    def draw(self):
+        pygame.draw.circle(screen, (0, 50, 255), (self.xpo, self.ypo), 4, 2)
+
+    def fall(self):
+        pygame.draw.circle(screen, (0, 50, 255), (self.xpo, self.ypo), 4, 2)
+        self.ypo += self.speed
+
+
+raindrops = []
+for i in range(10):
+    raindrops.append(Raindrop(randrange(0, screenx), 0))
+
+while True:
+    clock.tick(120)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+
+    screen.fill((50, 250, 200))
+    for raindrop in raindrops:
+        raindrop.fall()
+        raindrop.draw()
+
+    pygame.display.flip()
+    pygame.display.update()
+
+
+
+
+#moving circle
+
+import pygame, sys 
+pygame.init()
+pygame.display.set_caption("My first PyGame program")
+screenx = 400
+screeny = 400
+screen = pygame.display.set_mode((screenx,screeny))
+
+xposition = 0
+yposition =0
+clock= pygame.time.Clock()
+
+
+while True:
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      sys.exit()
+    if event.type ==pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+      xposition += 3
+    
+  clock.tick(40)  
+  pressed_key = pygame.key.get_pressed()
+  if pressed_key[pygame.K_LEFT]:
+    if xposition < 0:
+      xposition = screenx
+    else:
+      xposition -=3
+      
+  if pressed_key[pygame.K_RIGHT]:
+    if xposition >= screenx:
+      xpos= 0
+    else: 
+      xposition += 1
+
+  if pressed_key[pygame.K_UP]:
+    if yposition < 0:
+      ypsotiton = screeny
+    else:
+      yposition -= 3
+  
+  if pressed_key[pygame.K_DOWN]:
+    if yposition > screeny:
+      yposition = 0
+    else:
+      yposition += 3
+    
+  screen.fill((50,250,200))
+  pygame.draw.circle(screen,(255,0,0),(xposition,yposition),20,2)
+  pygame.display.flip()
+  pygame.display.update() 
