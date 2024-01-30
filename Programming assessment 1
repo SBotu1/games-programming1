@@ -1,1 +1,123 @@
+import time 
+import random
+print ("Welcome to the Legendary Quest of Strength!")
+Enemy1_health = 20
 
+lvl1= ['A','B','C']
+
+Enemies2_health = 100
+
+Player_health = 50
+
+if Player_health <= 0:
+    print ("you died game over")
+
+Option_B_enemy_health = 400
+
+Items = {'coins' : 1}
+
+Inventory = {'shortsword': 20 , 'fire ball' : 99 , 'blizzard slash' :100, 'Fire shot' : 100}
+print(Inventory)
+
+
+item_store: {'Health potion' : 50 , 'Greatsword' : 400 , 'Grappling hook' : 1}
+
+print ("STEVEN BEGINS HIS JOURNEY!.....", end = '\r')
+time.sleep (1.5)
+
+print ("His story began when he was out on a quest with his team to clear out a dungeon and collect treasure.", end = '\r')
+time.sleep (1.5)
+
+print ("But his team got got destroyed by the enemies and all of them died but Steven.", end='\r')
+time.sleep (1.5)
+
+print ("fast forward to the present Steven is now inside a dungeon alone because hes crew is dead and now he wants revenge.", end= '\r')
+time.sleep(1.5)
+
+print ("You enter the dungeon you see three pawthways A,B and C choose wisely.....", end = '\r')
+time.sleep (1.5)
+
+ice_monkeys_health = 100
+
+Inventory_new = {'shortsword': 20 , 'fire ball' : 100 , 'blizzard slash' :100, 'coins':1}
+Inventory.update(Inventory_new)
+
+counter_weapon = 'fire ball'
+
+ice_blast= 25
+
+Player_health = 50
+
+user_choice = input("Choose an option (A, B, or C): ")
+
+# The first loop until the player is attacked by the monkey
+while True:
+    if user_choice == 'A':
+        print("You walked through the cave and spotted an enemy slime.")
+        selected_weapon = input("Choose a weapon from your inventory: ")
+
+        while selected_weapon not in Inventory:
+            print("That's not a weapon in the inventory. Please choose a valid weapon.")
+            selected_weapon = input("Choose a weapon from your inventory: ")
+
+        damage = Inventory[selected_weapon]
+        Enemy1_health -= damage
+        print(f"You used {selected_weapon}. It dealt {damage} to slime.")
+
+        if Enemy1_health <= 0:
+            print("Slime slain!")
+            time.sleep(1.5)
+            print("You keep walking forward and spot a treasure chest!")
+            time.sleep(1.5)
+            print(f"But it was a trap and a swarm of ice monkeys attack you using ice blast dealing {ice_blast} damage.")
+            Player_health -= ice_blast
+            print(f"Player's current health: {Player_health}")
+
+            if Player_health <= 40:
+                break  # Exit the first loop
+
+    elif user_choice == 'B':
+        print("You walk through the hole, then realize you're falling through an endless pit.")
+        print("Unfortunately, you don't survive the fall. You die!")
+        break  # Exit the first loop
+
+    elif user_choice == 'C':
+        print("You spotted a baby rabbit. Steven attacks it anyway.")
+        print("Suddenly, it transforms into a fierce creature and kills you!")
+        break  # Exit the first loop
+
+# The second loop for the remaining code
+while True:
+    # Display the message corresponding to the counter weapon
+    print(f"The enemy attacked you with {counter_weapon}.")
+    chosen_weapon = input("Choose a weapon from your inventory to counter the attack: ")
+
+    while chosen_weapon not in Inventory:
+        print("That's not a weapon in the inventory. Please choose a valid weapon.")
+        chosen_weapon = input("Choose a weapon from your inventory to counter the attack: ")
+
+    if chosen_weapon == counter_weapon:
+        counter_damage = Inventory[chosen_weapon]  # Use the chosen weapon's damage
+        print(f"You used {chosen_weapon}. It countered the enemy attack and dealt {counter_damage} damage.")
+        ice_monkeys_health -= counter_damage
+    else:
+        print("You chose the wrong weapon. The counter failed. You take full damage.")
+        counter_damage = ice_blast  # Take full damage if the counter fails
+        Player_health -= counter_damage
+
+    if ice_monkeys_health <= 0:
+        print("Monkeys slain!")
+        time.sleep(1.5)
+
+        # The final choice input outside the monkey battle loop
+        choice = input("Do you want to open the treasure chest? (yes or no): ")
+
+        if choice.lower() == 'yes':
+            print(f"You found {Items} and it has been added to your inventory.")
+            print("You obtained the title 'Legendary Strength'!")
+            print("CONGRATS! You completed the game!!")
+            print(Inventory_new)
+        else:
+            print("You decided not to open the chest.")
+
+        break  # Exit the second loop
