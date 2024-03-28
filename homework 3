@@ -1,1 +1,106 @@
 
+# Define the letter_to_points dictionary
+letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 4, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
+letter_to_points = dict(zip(letters, points))
+letter_to_points[" "] = 0
+
+# Take player's name as input
+player_name = input("Enter your name: ")
+letters_counted = set()
+
+# Calculate total points for the player's name, ignoring duplicates
+total_points = sum(letter_to_points.get(letter.upper(), 0) for letter in player_name if letter.upper() not in letters_counted and not letters_counted.add(letter.upper()))
+
+
+# Print out the total points
+print(f"Your name is worth {total_points} points.")
+
+
+
+
+import random
+import math
+
+# Generate random unique integers between 3 and 12
+safe_code = random.sample(range(3, 13), 3)
+
+for num in safe_code:
+    while True:
+        try:
+            # Ask the player to reproduce the element
+            user_input = input(f"Enter two numbers to reproduce {num}: ").split(',')
+            if len(user_input) != 2:
+                raise ValueError("Please enter two numbers separated by comma.")
+            reproduced_num = math.ceil(int(user_input[0]) / int(user_input[1]))
+            if int(user_input[1]) == 1:
+                raise ValueError("Second number cannot be 1.")
+            break
+        except ValueError as ve:
+            print(ve)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+print("Congratulations! You've cracked the safe!")
+
+
+
+
+
+# Function to convert Fahrenheit to Celsius
+def f_to_c(f_temp):
+    return (f_temp - 32) * 5/9
+
+# Test f_to_c function with a value of 100 Fahrenheit
+f100_in_celsius = f_to_c(100)
+
+# Function to convert Celsius to Fahrenheit
+def c_to_f(c_temp):
+    return c_temp * (9/5) + 32
+
+# Test c_to_f function with a value of 0 Celsius
+c0_in_fahrenheit = c_to_f(0)
+
+# Print test variables
+print("100 Fahrenheit in Celsius:", f100_in_celsius)
+print("0 Celsius in Fahrenheit:", c0_in_fahrenheit)
+
+
+
+
+# Declare variables
+train_mass = 22680
+train_acceleration = 10
+train_distance = 100
+bomb_mass = 1
+
+# Define a function to calculate force
+def get_force(mass, acceleration):
+    return mass * acceleration
+
+# Test get_force
+train_force = get_force(train_mass, train_acceleration)
+
+# Print train force
+print("The GE train supplies", train_force, "Newtons of force.")
+
+# Define a function to calculate energy
+def get_energy(mass, c=3*10**8):
+    return mass * c**2
+
+# Test get_energy
+bomb_energy = get_energy(bomb_mass)
+
+# Print bomb energy
+print("A 1kg bomb supplies", bomb_energy, "Joules.")
+
+# Define a function to calculate work
+def get_work(mass, acceleration, distance):
+    force = get_force(mass, acceleration)
+    return force * distance
+
+# Test get_work
+train_work = get_work(train_mass, train_acceleration, train_distance)
+
+# Print train work
+print("The GE train does", train_work, "Joules of work over", train_distance, "meters.")
