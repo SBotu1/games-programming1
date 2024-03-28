@@ -1,1 +1,157 @@
+def validate_date(date_str):
+    try:
+        # Split the input date string by "/"
+        day, month, year = map(int, date_str.split('/'))
+        
+        # Check if day, month, and year are within valid ranges
+        if not (1 <= day <= 31 and 1 <= month <= 12):
+            return False, None
+        
+        # Convert month number to month name
+        month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+                       'August', 'September', 'October', 'November', 'December']
+        month_name = month_names[month - 1]
+        
+        return True, f"The date is {month_name} {day}, {year}"
+    except ValueError:
+        return False, None
+
+# Take input from the user
+while True:
+    date_input = input("Enter the date in the format (dd/mm/yyyy): ")
+    is_valid, result = validate_date(date_input)
+    if is_valid:
+        print(result)
+        break
+    else:
+        print("Invalid date format or out of range. Please enter again.")
+
+
+
+
+
+a_list = [3, 5, 6, 12]
+print(a_list[0])
+
+
+a_list = [3, 5, 6, 12]
+print(a_list[1:])
+
+
+
+a_list = [3, 5, 6, 12]
+print(a_list[::-1])
+
+
+a_list = [3, 5, 6, 12]
+print([x * 3 for x in a_list])
+
+
+a_list = [3, 5, 6, 12]
+print([x > 5 for x in a_list])
+
+
+
+myList = ["axe", "dagger", "oranges"]
+newList = ['*' + item for item in myList]
+print(newList)
+
+
+tupleList = [(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')]
+newTupleList = [tup for tup in tupleList if tup != ()]
+print(newTupleList)
+
+
+
+# Create a dictionary where keys are numbers between 1 and 20 and values are the square of their keys
+square_dict = {num: num ** 2 for num in range(1, 21)}
+
+# Print the dictionary
+print(square_dict)
+
+
+
+room_items = {
+    "item1": {"Name": "Lamp", "Colour": "Red"},
+    "item2": {"Name": "Table", "Colour": "Brown", "Type": 0},
+    "item3": {"Name": "Lamp", "Colour": "Red"},
+    "item4": {"Name": "Chair", "Colour": "Green", "Type": 1}
+}
+
+# Create an empty dictionary to store items without duplicates
+unique_items = {}
+
+# Iterate over the room_items dictionary
+for key, value in room_items.items():
+    # Check if the value is not already in the unique_items dictionary
+    if value not in unique_items.values():
+        # Add the item to the unique_items dictionary
+        unique_items[key] = value
+
+# Print the unique_items dictionary
+print(unique_items)
+
+
+# Initialize the inventory and player stats
+inventory = {}
+player_stats = {'health': 100, 'magic': 50, 'courage': 75}
+
+# Function to display inventory and player stats
+def display_inventory_and_stats():
+    print("Inventory:")
+    for item, quantity in inventory.items():
+        print(f"{item}: {quantity}")
+    print("\nPlayer Stats:")
+    for stat, value in player_stats.items():
+        print(f"{stat.capitalize()}: {value}")
+
+# Function to pick up an item
+def pick_up_item():
+    item_name = input("Enter the name of the item you want to pick up: ")
+    item_quantity = int(input("Enter the quantity of the item: "))
+    inventory[item_name] = inventory.get(item_name, 0) + item_quantity
+    print(f"{item_quantity} {item_name}(s) added to inventory.")
+
+# Function to use an item
+def use_item():
+    item_name = input("Enter the name of the item you want to use: ")
+    if item_name in inventory:
+        # Perform actions based on the item used
+        # For example, if the item is a potion, it may increase health
+        if item_name == 'potion':
+            player_stats['health'] += 20
+            print("You used a potion. Health increased by 20.")
+        elif item_name == 'magic scroll':
+            player_stats['magic'] -= 10
+            print("You used a magic scroll. Magic decreased by 10.")
+        elif item_name == 'courage potion':
+            player_stats['courage'] += 15
+            print("You used a courage potion. Courage increased by 15.")
+        # Decrease the quantity of the used item in the inventory
+        inventory[item_name] -= 1
+        if inventory[item_name] == 0:
+            del inventory[item_name]
+    else:
+        print("Item not found in inventory.")
+
+# Main loop to interact with the inventory system
+while True:
+    print("\n1. Display Inventory and Player Stats")
+    print("2. Pick Up Item")
+    print("3. Use Item")
+    print("4. Exit")
+    choice = input("Enter your choice: ")
+    if choice == '1':
+        display_inventory_and_stats()
+    elif choice == '2':
+        pick_up_item()
+    elif choice == '3':
+        use_item()
+    elif choice == '4':
+        print("Exiting the game. Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please enter a valid option.")
+
+
 
