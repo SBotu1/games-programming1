@@ -1,0 +1,54 @@
+import random
+
+class Collectible:
+    def __init__(self):
+        self.total_points = 0
+
+class Coins(Collectible):
+    def __init__(self):
+        super().__init__()
+        self.value = random.randint(20, 100)
+
+class Potions(Collectible):
+    def __init__(self, color):
+        super().__init__()
+        self.value = random.randint(20, 100)
+        self.color = color
+
+total_points_coins = 0
+total_points_potions = 0
+
+while total_points_coins + total_points_potions < 600:
+    user_input = input("Give me one number between 1-6: ")
+    
+    if not user_input.isdigit():
+        print("I asked for a number!")
+        continue
+
+    as_num = int(user_input)
+
+    if as_num > 6:
+        print("That number is more than 6")
+        continue
+
+    elif as_num <= 3:
+        print("Collecting coins")
+        coin = Coins()
+        total_points_coins += coin.value
+        print("Total points for coins:", total_points_coins)
+        if total_points_coins >= 300:
+            print("You leveled up!")
+        pass
+
+    else:
+        print("Collecting potion")
+        potion_color = input("Enter potion color (Red, Green, Blue): ")
+        if potion_color.lower() == "green":
+            print("You lose 100 points!")
+            total_points_potions = max(0, total_points_potions - 100)
+        potion = Potions(potion_color)
+        total_points_potions += potion.value
+        print("Total points for potions:", total_points_potions)
+        if total_points_potions >= 300:
+            print("You leveled up!")
+        pass
